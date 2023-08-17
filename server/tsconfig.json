@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2016", // 构建目标的版本（由于是服务端项目，node对js的支持版本支持比较高）
+    "module": "CommonJS", // 编译结果的模块化标准（由于是服务器环境，所以使用commonJS）
+    "outDir": "./dist", // 编译结果的输出目录
+    "experimentalDecorators": true, // 由于要使用class-validator库，所以开启该配置
+    "emitDecoratorMetadata": true, // 由于要使用class-validator库，开启后将ts中的类型约束作为装饰器放到元数据里去
+    "strictNullChecks": true, // 开启后null,undefined等只能赋值给自己，不能赋值给其他类型
+    "removeComments": true, // TS中的注释在编译结果中移除
+    "noEmitOnError": true, // TS静态检查没有通过，编译发生错误时，不要生成编译结果
+    "lib": ["ESNext"], // 环境：默认是浏览器环境。由于是服务端，window,document等不需要，只需要一个纯粹的esnext环境
+  },
+  "include": ["./src"]
+}
