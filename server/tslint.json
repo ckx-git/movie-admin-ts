@@ -7,7 +7,12 @@
     "rules": {
         "no-empty": true,
         "no-console": true,
-        "interface-name": true
+        "interface-name": true,
+        "ordered-imports": false,
+        "arrow-parens": false,
+        "trailing-comma": false,
+        "object-literal-sort-keys": false,
+        "member-ordering": false
 
     },
     "rulesDirectory": []

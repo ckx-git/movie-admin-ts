@@ -1,7 +1,8 @@
-import { Type } from "class-transformer";
-import { ArrayMinSize, IsArray, IsInt, IsNotEmpty, Max, Min } from "class-validator";
+import { Type, plainToClass } from "class-transformer";
+import { ArrayMinSize, IsArray, IsInt, IsNotEmpty, Max, Min, validate } from "class-validator";
+import { BaseEntity } from "./BaseEntity";
 
-export class Movie {
+export class Movie extends BaseEntity {
   @IsNotEmpty({ message: '电影名称不能为空' })
   @Type(() => String) // 通过装饰器将类型带入到运行时，这样通过plainToClass转换后的数据始终是指定类型。且这里的String必须是大写，因为JS中不存在string
   public name: string
@@ -42,4 +43,13 @@ export class Movie {
 
   @Type(() => String)
   public poster?: string
+
+
+  /**
+   * 建一个平面对象转换为Movie类的对象
+   * @param plainObject 平面对象
+   */
+  public static transform(plainObject: object): Movie {
+    return super.baseTransform(Movie, plainObject)
+  }
 }
