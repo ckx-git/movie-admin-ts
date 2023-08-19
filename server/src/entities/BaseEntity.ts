@@ -1,5 +1,6 @@
-import { ClassConstructor, plainToClass } from "class-transformer"
 import { validate } from "class-validator"
+import { plainToClass } from "class-transformer"
+import { ClassType } from "class-transformer/ClassTransformer"
 
 export abstract class BaseEntity {
   /**
@@ -7,7 +8,7 @@ export abstract class BaseEntity {
    */
   public async validateThis(skipMissing = false): Promise<string[]> {
     const errors = await validate(this, {
-      skipUndefinedProperties: skipMissing
+      skipMissingProperties: skipMissing
     })
     const temp = errors.map(e => Object.values(e.constraints!))
     const result: string[] = []
@@ -40,7 +41,7 @@ export abstract class BaseEntity {
    * 建一个平面对象转换为Movie类的对象
    * @param plainObject 平面对象
    */
-  protected static baseTransform<T>(cls: ClassConstructor<T>, plainObject: object): T {
+  protected static baseTransform<T>(cls: ClassType<T>, plainObject: object): T {
     if (plainObject instanceof cls) {
       return plainObject
     }
