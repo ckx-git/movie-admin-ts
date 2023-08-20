@@ -5,7 +5,10 @@ import UploadRouter from './routes/UploadRoute'
 
 const app = Express()
 
-app.use(Express.json()) // 配置中间件，用于解析请求体中的json格式数据
+app.use('/upload', Express.static('public/upload'))
+
+// 配置中间件，用于解析请求体中的json格式数据
+app.use(Express.json())
 
 // 使用postman进行测试
 app.use('/api/movie', MovieRouter)
