@@ -5,6 +5,9 @@ import { SearchCondition } from "../entities/SearchCondition";
 import { ISearchResult } from "../entities/CommonTypes";
 
 export class MovieService {
+  /**
+   * 添加单个电影
+   */
   public static async add(movie: Movie): Promise<IMovie | string[]> {
     // 1.类型转换
     movie = Movie.transform(movie)
@@ -17,6 +20,9 @@ export class MovieService {
     return await MovieModel.create(movie)
   }
 
+  /**
+   * 编辑单个电影
+   */
   public static async edit(id: string, movie: Movie): Promise<string[]> {
     // 1.类型转换
     const movieObj = Movie.transform(movie) // 为了避免将未修改的属性更新为默认值，转换后的对象只参与验证。更新时使用传过来的对象
@@ -31,16 +37,22 @@ export class MovieService {
     return []
   }
 
+  /**
+   * 删除
+   */
   public static async delete(id: string): Promise<void> {
     await MovieModel.deleteOne({_id: id})
   }
   
+  /**
+   * 根据ID查找电影
+   */
   public static async findById(id: string): Promise<IMovie | null> {
     return MovieModel.findById(id)
   }
 
   /**
-   * 
+   * 分页查询
    * @param contion page, limit, key
    */
   public static async find(condition: SearchCondition): Promise<ISearchResult<IMovie>> {
