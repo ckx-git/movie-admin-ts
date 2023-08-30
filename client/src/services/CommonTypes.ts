@@ -10,7 +10,7 @@ export interface IResponseData<T> {
 
 export interface IResponsePageData<T> {
   err: ''
-  count: number
+  total: number
   data: T[]
 }
 

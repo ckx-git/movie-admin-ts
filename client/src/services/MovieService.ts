@@ -22,18 +22,18 @@ export class MovieService {
   }
 
   public static async edit(id: string, movie: IMovie): Promise<IResponseData<true> | IResponseError> {
-    const { data } = await axios.put('/api/movie' + id, movie)
+    const { data } = await axios.put('/api/movie/' + id, movie)
 
     return data
   }
 
-  public static async delete(id: string, movie: IMovie): Promise<IResponseData<true> | IResponseError> {
-    const { data } = await axios.delete('/api/movie' + id)
+  public static async delete(id: string): Promise<IResponseData<true> | IResponseError> {
+    const { data } = await axios.delete('/api/movie/' + id)
     return data
   }
 
   public static async getMovieById(id: string): Promise<IMovie | null> {
-    const { data } = await axios.get('/api/movie' + id)
+    const { data } = await axios.get('/api/movie/' + id)
     return data
   }
 

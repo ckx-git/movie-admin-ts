@@ -11,10 +11,16 @@ import MovieAction from './redux/actions/MovieAction';
 //   console.log(store.getState())
 // })
 
-store.dispatch(MovieAction.setLoadingAction(true))
-store.dispatch(MovieAction.setConditionAction({
+store.dispatch(MovieAction.fetchMovies({
   page: 2
-}))
+})).then(() => {
+  store.dispatch(MovieAction.deleteMovie("64df590538b0eb3c6c96aaf0"))
+})
+
+// store.dispatch(MovieAction.setLoadingAction(true))
+// store.dispatch(MovieAction.setConditionAction({
+//   page: 2
+// }))
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
