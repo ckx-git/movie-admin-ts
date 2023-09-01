@@ -1,15 +1,17 @@
 import React from "react";
 import { IMovieState } from "../redux/reducers/MovieReducer";
-import { Switch, Table } from 'antd'
-import { ColumnProps } from "antd/lib/table";
+import { Button, Popconfirm, Switch, Table, message } from 'antd'
+import { ColumnProps, PaginationConfig } from "antd/lib/table";
 import { IMovie } from "../services/MovieService";
 import defaultposterImg from '../assets/defaultposter.png'
 import { SwitchType } from "../services/CommonTypes";
+import { NavLink } from "react-router-dom";
 
 export interface IMovieTableEvents {
   onLoad: () => void
   onSwitchChange: (type: SwitchType, newState: boolean, id: string) => void
-
+  onDelete: (id: string) => Promise<void>
+  onChange: (newPage: number) => void
 }
 
 export default class extends React.Component<IMovieState & IMovieTableEvents> {
@@ -78,15 +80,49 @@ export default class extends React.Component<IMovieState & IMovieTableEvents> {
           }} />
         },
       },
-
+      {
+        title: '操作', dataIndex: '_id',
+        render: (id: string) => {
+          return <div>
+            <NavLink to={'/movie/edit/' + id}>
+              <Button type="primary" size="small">编辑</Button>
+            </NavLink>
+            <Popconfirm title="确定要删除吗" onConfirm={ async () => {
+              await this.props.onDelete(id)
+              message.success('删除成功')
+            }} okText="确定" cancelText="取消">
+              <Button type="danger" size="small">删除</Button>
+            </Popconfirm>
+          </div>
+        },
+      },
     ]
   }
+
+  getPageConfig(): PaginationConfig | false {
+    if (this.props.total === 0) {
+      return false
+    }
+    return {
+      current: this.props.condition.page,
+      pageSize: this.props.condition.limit,
+      total: this.props.total
+    }
+  }
+
+  handleChange(pagination: PaginationConfig) {
+    this.props.onChange(pagination.current!)
+  }
+
   render() {
     return (
       <Table
         rowKey="_id"
         dataSource={this.props.data}
         columns={this.getColumns()}
+        pagination={this.getPageConfig()}
+        onChange={this.handleChange.bind(this)}
+        loading={this.props.isLoading}
       ></Table>
     )
   }
