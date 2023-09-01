@@ -768,7 +768,7 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-transform-typescript" "^7.3.2"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.2":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.3":
   "integrity" "sha1-3C40mC6yNoA6onoH/qaFevG5Fx0="
   "resolved" "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.4.4.tgz"
   "version" "7.4.4"
@@ -1161,7 +1161,7 @@
   "resolved" "https://registry.npm.taobao.org/@types/history/download/@types/history-4.7.2.tgz"
   "version" "4.7.2"
 
-"@types/hoist-non-react-statics@^3.3.1":
+"@types/hoist-non-react-statics@^3.3.0", "@types/hoist-non-react-statics@^3.3.1":
   "integrity" "sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA=="
   "resolved" "https://registry.npmmirror.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz"
   "version" "3.3.1"
@@ -1222,6 +1222,15 @@
   "version" "16.8.4"
   dependencies:
     "@types/react" "*"
+
+"@types/react-redux@^7.0.8":
+  "integrity" "sha512-vIBC15E84ehN6RzdGwRVa41whp9e4CkfPm+WfD0r6y6vqBf4tQPKZeKEBfLLM8k79uSwQC7rh3rH/MFaN1IESQ=="
+  "resolved" "https://registry.npmmirror.com/@types/react-redux/-/react-redux-7.0.8.tgz"
+  "version" "7.0.8"
+  dependencies:
+    "@types/hoist-non-react-statics" "^3.3.0"
+    "@types/react" "*"
+    "redux" "^4.0.0"
 
 "@types/react-router-dom@^4.3.3":
   "integrity" "sha1-eDfj6f77yEqPbIpR3KAE9Og+lOM="
@@ -7940,13 +7949,14 @@
     "kleur" "^3.0.2"
     "sisteransi" "^1.0.0"
 
-"prop-types@^15.0", "prop-types@^15.0.0", "prop-types@^15.5.0", "prop-types@^15.5.10", "prop-types@^15.5.4", "prop-types@^15.5.6", "prop-types@^15.5.7", "prop-types@^15.5.8", "prop-types@^15.5.9", "prop-types@^15.6.0", "prop-types@^15.6.2", "prop-types@>=15.0.0", "prop-types@15.x":
-  "integrity" "sha512-f8Lku2z9kERjOCcnDOPm68EBJAO2K00Q5mSgPAUE/gJuBgsYLbVy6owSrtcHj90zt8PvW+z0qaIIgsIhHOa1Qw=="
-  "resolved" "https://registry.npmmirror.com/prop-types/-/prop-types-15.7.1.tgz"
-  "version" "15.7.1"
+"prop-types@^15.0", "prop-types@^15.0.0", "prop-types@^15.5.0", "prop-types@^15.5.10", "prop-types@^15.5.4", "prop-types@^15.5.6", "prop-types@^15.5.7", "prop-types@^15.5.8", "prop-types@^15.5.9", "prop-types@^15.6.0", "prop-types@^15.6.2", "prop-types@^15.7.2", "prop-types@>=15.0.0", "prop-types@15.x":
+  "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
+  "resolved" "https://registry.npmmirror.com/prop-types/-/prop-types-15.8.1.tgz"
+  "version" "15.8.1"
   dependencies:
+    "loose-envify" "^1.4.0"
     "object-assign" "^4.1.1"
-    "react-is" "^16.8.1"
+    "react-is" "^16.13.1"
 
 "property-information@^5.0.0", "property-information@^5.0.1":
   "integrity" "sha512-nAtBDVeSwFM3Ot/YxT7s4NqZmqXI7lLzf46BThvotEtYf2uk2yH0ACYuWQkJ7gxKs49PPtKVY0UlDGkyN9aJlw=="
@@ -8556,7 +8566,7 @@
   "resolved" "https://registry.npm.taobao.org/react-error-overlay/download/react-error-overlay-5.1.5.tgz"
   "version" "5.1.5"
 
-"react-is@^16.12.0", "react-is@^16.13.1", "react-is@^16.6.0", "react-is@^16.7.0", "react-is@^16.8.1", "react-is@^16.8.4":
+"react-is@^16.12.0", "react-is@^16.13.1", "react-is@^16.6.0", "react-is@^16.7.0", "react-is@^16.8.4", "react-is@^16.8.6":
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmmirror.com/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
@@ -8575,6 +8585,18 @@
   "integrity" "sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA=="
   "resolved" "https://registry.npmmirror.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz"
   "version" "3.0.4"
+
+"react-redux@^7.0.3":
+  "integrity" "sha512-vYZA7ftOYlDk3NetitsI7fLjryt/widNl1SLXYvFenIpm7vjb4ryK0EeFrgn62usg5fYkyIAWNUPKnwWPevKLg=="
+  "resolved" "https://registry.npmmirror.com/react-redux/-/react-redux-7.0.3.tgz"
+  "version" "7.0.3"
+  dependencies:
+    "@babel/runtime" "^7.4.3"
+    "hoist-non-react-statics" "^3.3.0"
+    "invariant" "^2.2.4"
+    "loose-envify" "^1.4.0"
+    "prop-types" "^15.7.2"
+    "react-is" "^16.8.6"
 
 "react-router-dom@^5.0.0":
   "integrity" "sha1-VCqbhq8mmjfwuHIYxMJeqNzwwHM="
@@ -8674,7 +8696,7 @@
     "lodash.debounce" "^4.0.8"
     "resize-observer-polyfill" "^1.5.0"
 
-"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0", "react@^0.14.0 || ^15.0.0-0 || ^16.0.0 || ^17.0.0", "react@^0.14.0 || ^15.0.0-rc || ^16.0.0-rc || ^16.0.0", "react@^0.14.0 || ^15.0.1 || ^16.0.0", "react@^0.14.0 || >=15.0.0", "react@^16.0.0", "react@^16.8.6", "react@>=15", "react@>=15.0.0", "react@>=15.x", "react@>=16.0.0", "react@16.x":
+"react@*", "react@^0.14.0 || ^15.0.0 || ^16.0.0", "react@^0.14.0 || ^15.0.0-0 || ^16.0.0 || ^17.0.0", "react@^0.14.0 || ^15.0.0-rc || ^16.0.0-rc || ^16.0.0", "react@^0.14.0 || ^15.0.1 || ^16.0.0", "react@^0.14.0 || >=15.0.0", "react@^16.0.0", "react@^16.8.3", "react@^16.8.6", "react@>=15", "react@>=15.0.0", "react@>=15.x", "react@>=16.0.0", "react@16.x":
   "integrity" "sha1-rWw6lhT9Ok6e9REX9U2IjaAfK74="
   "resolved" "https://registry.npm.taobao.org/react/download/react-16.8.6.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freact%2Fdownload%2Freact-16.8.6.tgz"
   "version" "16.8.6"
@@ -8785,6 +8807,14 @@
   "resolved" "https://registry.npm.taobao.org/redux-thunk/download/redux-thunk-2.3.0.tgz"
   "version" "2.3.0"
 
+"redux@^2.0.0 || ^3.0.0 || ^4.0.0-0", "redux@^4.0.0", "redux@^4.0.1":
+  "integrity" "sha1-Q2yubMQPvkcnaJ18j65EgI8b/vU="
+  "resolved" "https://registry.npm.taobao.org/redux/download/redux-4.0.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fredux%2Fdownload%2Fredux-4.0.1.tgz"
+  "version" "4.0.1"
+  dependencies:
+    "loose-envify" "^1.4.0"
+    "symbol-observable" "^1.2.0"
+
 "redux@^3.6.0":
   "integrity" "sha1-BrcxIyFZAdJdBlvjQusCa8HIU3s="
   "resolved" "https://registry.npm.taobao.org/redux/download/redux-3.7.2.tgz"
@@ -8794,14 +8824,6 @@
     "lodash-es" "^4.2.1"
     "loose-envify" "^1.1.0"
     "symbol-observable" "^1.0.3"
-
-"redux@^4.0.1":
-  "integrity" "sha1-Q2yubMQPvkcnaJ18j65EgI8b/vU="
-  "resolved" "https://registry.npm.taobao.org/redux/download/redux-4.0.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fredux%2Fdownload%2Fredux-4.0.1.tgz"
-  "version" "4.0.1"
-  dependencies:
-    "loose-envify" "^1.4.0"
-    "symbol-observable" "^1.2.0"
 
 "regenerate-unicode-properties@^8.0.2":
   "integrity" "sha1-ezj6opYlI3bTY1WM+9qQyc5wlmI="
