@@ -8,6 +8,7 @@ import { withRouter, RouteComponentProps } from "react-router";
 interface IFormProp extends RouteComponentProps {
   form: WrappedFormUtils<any>
   onSubmit: (movie: IMovie) => Promise<string>
+  movie?: IMovie
 }
 
 const formItemLayout = {
@@ -115,7 +116,8 @@ class MovieForm extends React.Component<IFormProp> {
           label="正在热映"
         >
           {getFieldDecorator<IMovie>("isHot", {
-            initialValue: false
+            initialValue: false,
+            valuePropName: "checked"
           })(
             <Switch />
           )}
@@ -124,7 +126,8 @@ class MovieForm extends React.Component<IFormProp> {
           label="即将上映"
         >
           {getFieldDecorator<IMovie>("isComing", {
-            initialValue: false
+            initialValue: false,
+            valuePropName: "checked"
           })(
             <Switch />
           )}
@@ -133,7 +136,8 @@ class MovieForm extends React.Component<IFormProp> {
           label="经典影片"
         >
           {getFieldDecorator<IMovie>("isClassic", {
-            initialValue: false
+            initialValue: false,
+            valuePropName: "checked"
           })(
             <Switch />
           )}
@@ -156,6 +160,25 @@ class MovieForm extends React.Component<IFormProp> {
   }
 }
 
+type MovieFields = {
+  [P in Exclude<keyof IMovie, "_id">]: any
+}
 
+function getDefaultField(movie: IMovie): MovieFields {
+  const obj: any = {};
+  for (const key in movie) {
+    obj[key] = Form.createFormField({
+      value: movie[key]
+    })
+  }
+  console.log(obj);
+  return obj;
+}
 
-export default withRouter(Form.create<IFormProp>()(MovieForm));
+export default withRouter(Form.create<IFormProp>({
+  mapPropsToFields: props => {
+    if (props.movie) {
+      return getDefaultField(props.movie);
+    }
+  }
+})(MovieForm));

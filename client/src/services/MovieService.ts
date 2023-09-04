@@ -36,13 +36,18 @@ export class MovieService {
     }
 
     public static async getMovies(condition: ISearchCondition): Promise<IResponsePageData<IMovie>> {
-        return new Promise(resolve => {
-            setTimeout(async () => {
-                const { data } = await axios.get("/api/movie", {
-                    params: condition
-                });
-                resolve(data)
-            }, 1500)
-        })
+        const { data } = await axios.get("/api/movie", {
+            params: condition
+        });
+        return data
+
+        // return new Promise(resolve => {
+        //     setTimeout(async () => {
+        //         const { data } = await axios.get("/api/movie", {
+        //             params: condition
+        //         });
+        //         resolve(data)
+        //     }, 1500)
+        // })
     }
 }
