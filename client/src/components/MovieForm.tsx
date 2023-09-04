@@ -68,7 +68,7 @@ class MovieForm extends React.Component<IFormProp> {
       <Form
         onSubmit={this.handleSubmit.bind(this)}
         {...formItemLayout}
-        style={{ width: "400px" }}>
+        style={{ width: "500px" }}>
         <Form.Item
           label="电影名称"
         >
