@@ -2,9 +2,12 @@ import "reflect-metadata"
 import Express from 'express'
 import MovieRouter from './routes/MovieRoute'
 import UploadRouter from './routes/UploadRoute'
+import history from "connect-history-api-fallback";
 
 const app = Express()
 
+app.use(history());
+app.use("/", Express.static("public/build"));
 app.use('/upload', Express.static('public/upload'))
 
 // 配置中间件，用于解析请求体中的json格式数据
